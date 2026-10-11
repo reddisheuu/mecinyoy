@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #FFE8E8 40%, #ffb6c1 100%);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+/* Container Tombol */
+.button-container {
+    position: absolute;
+    bottom: 30px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out 6s forwards;
+    z-index: 100;
+}
+
+/* Tombol Interaktif */
+.btn-meci {
+    background: linear-gradient(135deg, #ff758f, #ffb3c6);
+    color: #4a0e17;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 117, 143, 0.4);
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.btn-meci:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 117, 143, 0.6);
+    background: linear-gradient(135deg, #ff8fa3, #ffccd5);
+}
+
+.btn-meci:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+/* Modal Overlay Surat */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(43, 25, 32, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 200;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Tampilan Surat / Notes */
+.letter-card {
+    background: #fff0f3;
+    border: 2px solid #ffb3c6;
+    width: 85%;
+    max-width: 450px;
+    padding: 30px 25px 25px 25px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 179, 198, 0.3);
+    position: relative;
+    transform: translateY(30px) scale(0.9);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: #4a0e17;
+    box-sizing: border-box;
+}
+
+.modal-overlay.active .letter-card {
+    transform: translateY(0) scale(1);
+}
+
+.letter-header {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #c9184a;
+    margin-bottom: 12px;
+    border-bottom: 1.5px dashed #ff8fa3;
+    padding-bottom: 8px;
+}
+
+.letter-content {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #2b0910;
+    white-space: pre-line;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #ff4d6d;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #a4133c;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
